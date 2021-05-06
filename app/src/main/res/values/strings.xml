@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Bakkal Defteri</string>
+
     <string name="homeFragmentGreetingsTvText">Merhaba</string>
     <string name="homeFragmentUserNameTvText">Fatih Bey</string>
     <string name="homeFragmentSpendingTvText">Harcamalarınız</string>
@@ -9,6 +10,7 @@
     <string name="homeFragmentEuroButtonText">Euro</string>
     <string name="homeFragmentDollarButtonText">Dolar</string>
     <string name="homeFragmentCoordinatorLayoutFloatingActionButtonText">EKLE</string>
+
     <string name="SpendingAddingScreenFragmentTextViewTitleText">Harcama Ekle</string>
     <string name="SpendingAddingScreenFragmentEditTextDescriptionHint">Açıklama</string>
     <string name="SpendingAddingScreenFragmentEditTextSpendingHint">Harcama</string>
@@ -20,11 +22,11 @@
     <string name="spendingAddingScreenFragmentEuroRadioButtonText">Euro</string>
     <string name="spendingAddingScreenFragmentSterlingRadioButtonText">Sterlin</string>
     <string name="spendingAddingScreenFragmentAddButtonText">Ekle</string>
+
     <string name="ChangeNameFragmentTextViewTitleText">İsim Değiştir</string>
     <string name="ChangeNameFragmentEditTextHint">İsminizi Giriniz</string>
     <string name="ChangeNameFragmentManRadioButtonText">Erkek</string>
     <string name="ChangeNameFragmentWomanRadioButtonText">Kadın</string>
     <string name="ChangeNameFragmentDoNotWantRadioButtonText">Belirtmek İstemiyorum</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="changeNameFragmentAddButtonText">Ekle</string>
 </resources>

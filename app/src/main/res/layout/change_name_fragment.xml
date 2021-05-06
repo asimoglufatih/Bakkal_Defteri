@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+        name = "changeNameViewModel"
+        type = "com.example.bakkaldefteri.changename.ChangeNameViewModel"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".changename.ChangeNameFragment">
+
+        <TextView
+            android:id="@+id/ChangeNameFragmentTextViewTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/ChangeNameFragmentTextViewTitleMargin"
+            android:text="@string/ChangeNameFragmentTextViewTitleText"
+            android:textSize="@dimen/ChangeNameFragmentTextViewTitleSize" />
+
+        <View
+
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/btnGray" />
+
+        <com.google.android.material.textfield.TextInputLayout
+
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/ChangeNameFragmentTextInputLayoutMarginStart"
+            android:layout_marginTop="@dimen/ChangeNameFragmentTextInputLayoutMarginTop"
+            android:layout_marginEnd="@dimen/ChangeNameFragmentTextInputLayoutMarginEnd"
+            android:orientation="vertical"
+            app:boxCornerRadiusBottomEnd="@dimen/ChangeNameFragmentTextInputLayoutRadius"
+            app:boxCornerRadiusBottomStart="@dimen/ChangeNameFragmentTextInputLayoutRadius"
+            app:boxCornerRadiusTopEnd="@dimen/ChangeNameFragmentTextInputLayoutRadius"
+            app:boxCornerRadiusTopStart="@dimen/ChangeNameFragmentTextInputLayoutRadius">
+
+            <EditText
+                android:id="@+id/ChangeNameFragmentEditTextDescription"
+                android:afterTextChanged="@{changeNameViewModel::setUsername}"
+                android:text="@{changeNameViewModel.userName}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/ChangeNameFragmentEditTextHint"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginStart="@dimen/ChangeNameFragmentRadioGroupMarginStart">
+
+            <RadioButton
+                android:id="@+id/ChangeNameFragmentManRadioButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ChangeNameFragmentManRadioButtonText"
+                android:textSize="@dimen/ChangeNameFragmentRadioButtonTextSize"
+                android:layout_marginTop="@dimen/ChangeNameFragmentManRadioButtonMarginTop" />
+
+            <RadioButton
+                android:id="@+id/ChangeNameFragmentWomanRadioButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ChangeNameFragmentWomanRadioButtonText"
+                android:textSize="@dimen/ChangeNameFragmentRadioButtonTextSize"
+                android:layout_marginTop="@dimen/ChangeNameFragmentWomanRadioButtonMarginTop" />
+
+            <RadioButton
+                android:id="@+id/ChangeNameFragmentDoNotWantRadioButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/ChangeNameFragmentDoNotWantRadioButtonText"
+                android:textSize="@dimen/ChangeNameFragmentDoNotWantRadioButtonTextSize"
+                android:layout_marginTop="@dimen/ChangeNameFragmentDoNotWantRadioButtonMarginTop" />
+
+        </RadioGroup>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/changeNameFragmentAddButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:onClick="@{() -> changeNameViewModel.onSaved()}"
+            android:layout_marginTop="@dimen/changeNameFragmentAddButtonMarginTop"
+            android:layout_marginEnd="@dimen/changeNameFragmentAddButtonMarginEnd"
+            android:text="@string/changeNameFragmentAddButtonText"
+            app:cornerRadius="@dimen/changeNameFragmentAddButtonRadius" />
+
+
+    </LinearLayout>
+</layout>

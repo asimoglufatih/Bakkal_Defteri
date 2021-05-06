@@ -5,18 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.OnBackPressedCallback
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import com.example.bakkaldefteri.R
-import kotlinx.android.synthetic.main.fragment_splash_screen.*
 import java.util.*
 import kotlin.concurrent.schedule
 
-@Suppress("DEPRECATION")
 class SplashScreen : Fragment() {
 
     override fun onCreateView(

@@ -7,21 +7,29 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.bakkaldefteri.HomeFragment"
+        android:name="com.example.bakkaldefteri.home.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" >
+        tools:layout="@layout/home_fragment" >
         <action
             android:id="@+id/action_homeFragment_to_spendingAddingScreenFragment"
             app:destination="@id/spendingAddingScreenFragment" />
         <action
             android:id="@+id/action_homeFragment_to_changeNameFragment"
             app:destination="@id/changeNameFragment" />
+        <argument
+            android:name="argUserName"
+            app:argType="string"
+            android:defaultValue="isim"/>
     </fragment>
     <fragment
         android:id="@+id/spendingAddingScreenFragment"
-        android:name="com.example.bakkaldefteri.SpendingAddingScreenFragment"
+        android:name="com.example.bakkaldefteri.spendingadding.SpendingAddingScreenFragment"
         android:label="fragment_spending_adding_screen"
-        tools:layout="@layout/fragment_spending_adding_screen" />
+        tools:layout="@layout/spending_adding_screen_fragment" >
+        <action
+            android:id="@+id/action_spendingAddingScreenFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/splashScreen"
         android:name="com.example.bakkaldefteri.openingscreens.SplashScreen"
@@ -33,7 +41,12 @@
     </fragment>
     <fragment
         android:id="@+id/changeNameFragment"
-        android:name="com.example.bakkaldefteri.ChangeNameFragment"
+        android:name="com.example.bakkaldefteri.changename.ChangeNameFragment"
         android:label="fragment_change_name"
-        tools:layout="@layout/fragment_change_name" />
+        tools:layout="@layout/change_name_fragment" >
+        <action
+            android:id="@+id/action_changeNameFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+
+    </fragment>
 </navigation>
