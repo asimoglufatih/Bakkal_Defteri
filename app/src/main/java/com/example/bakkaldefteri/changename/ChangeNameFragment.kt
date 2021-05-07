@@ -6,13 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.databinding.BaseObservable
 import androidx.databinding.DataBindingUtil
-import androidx.databinding.Observable
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
 import com.example.bakkaldefteri.R
+import com.example.bakkaldefteri.database.UserDataBase
 import com.example.bakkaldefteri.databinding.ChangeNameFragmentBinding
 
 class ChangeNameFragment : Fragment() {
@@ -26,20 +25,19 @@ class ChangeNameFragment : Fragment() {
         binding = DataBindingUtil.inflate(
                 inflater, R.layout.change_name_fragment, container, false)
 
-        val viewModelFactory = ChangeNameViewModelFactory()
+        val app = requireNotNull(this.activity).application
+        val userDao = UserDataBase.getInstance(app).userDataBaseObject
+
+        val viewModelFactory = ChangeNameViewModelFactory(userDao)
         viewModel = ViewModelProvider(
                 this, viewModelFactory).get(ChangeNameViewModel::class.java)
 
         binding.changeNameViewModel = viewModel
         binding.lifecycleOwner = viewLifecycleOwner
 
-        val userName = binding.ChangeNameFragmentEditTextDescription.text.toString()
-
-        viewModel.checkUserName.observe(viewLifecycleOwner, Observer<Boolean>{ newCheckUserName ->
+        viewModel.checkUserName.observe(viewLifecycleOwner, Observer{ newCheckUserName ->
             if(newCheckUserName){
-                val action = ChangeNameFragmentDirections.actionChangeNameFragmentToHomeFragment(
-                    userName)
-                NavHostFragment.findNavController(this).navigate(action)
+                sendAction()
                 viewModel.onSavedComplete()
             }
 
@@ -49,7 +47,14 @@ class ChangeNameFragment : Fragment() {
         return binding.root
     }
 
-
+    fun sendAction(){
+        var gender: String
+        val userName = viewModel.userName.value.toString()
+        val action = ChangeNameFragmentDirections.actionChangeNameFragmentToHomeFragment(
+            userName
+        )
+        NavHostFragment.findNavController((this)).navigate(action)
+    }
 
 
 

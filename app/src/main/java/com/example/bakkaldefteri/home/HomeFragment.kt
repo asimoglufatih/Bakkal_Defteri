@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.example.bakkaldefteri.R
 import com.example.bakkaldefteri.databinding.HomeFragmentBinding
@@ -29,19 +30,28 @@ class HomeFragment : Fragment() {
         viewModel = ViewModelProvider(this, viewModelFactory).get(
             HomeViewModel::class.java
         )
+        binding.homeFragmentViewModel = viewModel
+        binding.lifecycleOwner = viewLifecycleOwner
+
+        viewModel.eventPlayAgain.observe(viewLifecycleOwner, Observer { playAgain ->
+            if (playAgain) {
+                findNavController().navigate(
+                    HomeFragmentDirections.actionHomeFragmentToChangeNameFragment()
+                )
+                viewModel.onPlayAgainComplete()
+
+                }
+            }
+        )
 
         binding.btnHomeFragmenttoSpendingAddingScreenFragment.setOnClickListener {
             findNavController().navigate(R.id.action_homeFragment_to_spendingAddingScreenFragment)
         }
 
-        binding.homeFragmentUserNameTv.setOnClickListener {
-            findNavController().navigate(R.id.action_homeFragment_to_changeNameFragment)
-        }
-
         return binding.root
 
-    }
-}
+        }
 
+    }
 
     

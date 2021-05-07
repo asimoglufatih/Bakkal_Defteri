@@ -21,6 +21,7 @@
 
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/homeFragmentUserNameLayout"
             android:layout_width="match_parent"
             android:layout_height="@dimen/homeFragmentTopConstraintLayoutHeight"
             android:background="@drawable/fragment_home_constraint_layout_theme">
@@ -41,9 +42,11 @@
 
             <TextView
                 android:id="@+id/homeFragmentUserNameTv"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:text="@{homeFragmentViewModel.homeUserName}"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="Bir isim giriniz"
+                android:onClick="@{() -> homeFragmentViewModel.onPlayAgain()}"
+                android:Text="@{homeFragmentViewModel.homeUserName}"
                 android:textColor="@color/white"
                 android:textSize="@dimen/homeFragmentTextSize2"
                 android:layout_marginStart="@dimen/homeFragmentStartMargin"

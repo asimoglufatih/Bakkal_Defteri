@@ -7,23 +7,23 @@ import androidx.room.RoomDatabase
 
 
 @Database(entities= [Spending::class], version= 1, exportSchema = false)
-abstract class dataBase: RoomDatabase() {
+abstract class DataBase: RoomDatabase() {
 
-   abstract val dataBaseObject: dataBaseObject
+   abstract val dataBaseObject: DataBaseObject
 
    companion object {
 
       @Volatile
-      private var INSTANCE: dataBase? = null
+      private var INSTANCE: DataBase? = null
 
-      fun getInstance(context: Context): dataBase {
+      fun getInstance(context: Context): DataBase {
          synchronized(this) {
             var instance = INSTANCE
 
             if (instance == null) {
                instance = Room.databaseBuilder(
                   context.applicationContext,
-                  dataBase::class.java,
+                  DataBase::class.java,
                   "spending_database"
                )
                   .fallbackToDestructiveMigration()

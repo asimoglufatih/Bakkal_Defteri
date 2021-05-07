@@ -23,7 +23,7 @@ class SplashScreen : Fragment() {
         Timer().schedule(3000){
 
             lifecycleScope.launchWhenStarted{
-                findNavController().navigate(R.id.action_splashScreen_to_homeFragment,
+                findNavController().navigate(R.id.action_splashScreen_to_changeNameFragment,
                 null,
                 NavOptions.Builder()
                         .setPopUpTo(R.id.splashScreen,

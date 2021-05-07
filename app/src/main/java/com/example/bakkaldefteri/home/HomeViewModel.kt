@@ -1,28 +1,38 @@
 package com.example.bakkaldefteri.home
 
-import android.app.Application
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.bakkaldefteri.database.Spending
-import com.example.bakkaldefteri.database.dataBaseObject
 
 class HomeViewModel(
-    argsUserName: String,
+    private val userName: String,
 ) : ViewModel() {
 
     private val _homeUserName = MutableLiveData<String>()
     val homeUserName: LiveData<String>
         get() = _homeUserName
 
-    init{
-        Log.i("homeUser",argsUserName)
-        Log.i("homeUserValue",_homeUserName.value.toString())
-        _homeUserName.value = argsUserName
+    private val _eventPlayAgain = MutableLiveData<Boolean>()
+    val eventPlayAgain: LiveData<Boolean>
+        get() = _eventPlayAgain
+
+    fun onPlayAgain(){
+        _eventPlayAgain.value = true
     }
 
-    private val spending = MutableLiveData<Spending?>()
+    fun onPlayAgainComplete(){
+        _eventPlayAgain.value = false
+    }
+
+    init{
+        _homeUserName.value = userName
+        Log.i("homeUser",userName)
+        Log.i("homeUserValue",_homeUserName.value.toString())
+
+    }
+
+    //private val spending = MutableLiveData<Spending?>()
 
 
 

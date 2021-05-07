@@ -55,9 +55,11 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <RadioGroup
+            android:id="@+id/id_gender"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:checkedButton="@={changeNameViewModel.userGender}"
             android:layout_marginStart="@dimen/ChangeNameFragmentRadioGroupMarginStart">
 
             <RadioButton
@@ -91,7 +93,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
-            android:onClick="@{() -> changeNameViewModel.onSaved()}"
+            android:onClick="@{() -> changeNameViewModel.addUser()}"
             android:layout_marginTop="@dimen/changeNameFragmentAddButtonMarginTop"
             android:layout_marginEnd="@dimen/changeNameFragmentAddButtonMarginEnd"
             android:text="@string/changeNameFragmentAddButtonText"

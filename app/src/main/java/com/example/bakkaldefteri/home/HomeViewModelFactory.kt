@@ -2,7 +2,6 @@ package com.example.bakkaldefteri.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.bakkaldefteri.database.dataBaseObject
 import java.lang.IllegalArgumentException
 
 class HomeViewModelFactory(

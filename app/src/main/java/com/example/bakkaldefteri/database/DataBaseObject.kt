@@ -4,16 +4,19 @@ import androidx.lifecycle.LiveData
 import androidx.room.*
 
 @Dao
-interface dataBaseObject {
+interface DataBaseObject {
 
     @Insert
-    fun add(spending: Spending)
+    fun addSpending(spending: Spending)
 
     @Query("SELECT * FROM spending_table ORDER BY description" )
     fun getAllSpending(): LiveData<List<Spending>>
 
     @Delete
-    fun delete(spending: Spending)
+    fun deleteSpending(spending: Spending)
+
+
+
 
 
 
