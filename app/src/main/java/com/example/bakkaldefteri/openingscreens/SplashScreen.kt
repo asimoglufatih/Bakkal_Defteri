@@ -1,5 +1,6 @@
 package com.example.bakkaldefteri.openingscreens
 
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -19,19 +20,33 @@ class SplashScreen : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        // Inflate the layout for this fragment
-        Timer().schedule(3000){
+        if(onBoardingFinished()){
 
-            lifecycleScope.launchWhenStarted{
-                findNavController().navigate(R.id.action_splashScreen_to_changeNameFragment,
-                null,
-                NavOptions.Builder()
-                        .setPopUpTo(R.id.splashScreen,
-                                true).build())
+            Timer().schedule(3000){
+                lifecycleScope.launchWhenStarted{
+                    findNavController().navigate(R.id.action_splashScreen_to_homeFragment,
+                    null,
+                    NavOptions.Builder()
+                            .setPopUpTo(R.id.splashScreen,
+                                    true).build())
+                }
             }
+        }else{
+            lifecycleScope.launchWhenStarted {
+                findNavController().navigate(R.id.action_splashScreen_to_viewPager,
+                null,
+                NavOptions.Builder().setPopUpTo(R.id.splashScreen,true).build())
+            }
+//            val action = SplashScreenDirections.actionSplashScreenToViewPager()
+//            findNavController().navigate(action)
         }
 
         return inflater.inflate(R.layout.fragment_splash_screen, container, false)
+    }
+
+    private fun onBoardingFinished():Boolean {
+        val sharedPref = requireActivity().getSharedPreferences("onBoarding", Context.MODE_PRIVATE)
+        return sharedPref.getBoolean("Finished", false)
     }
 
 }

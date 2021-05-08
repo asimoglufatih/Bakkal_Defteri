@@ -15,7 +15,7 @@
             app:destination="@id/spendingAddingScreenFragment" />
         <action
             android:id="@+id/action_homeFragment_to_changeNameFragment"
-            app:destination="@id/changeNameFragment" />
+            app:destination="@id/changeNameFragment"/>
         <argument
             android:name="argUserName"
             app:argType="string"
@@ -37,10 +37,13 @@
         tools:layout="@layout/fragment_splash_screen" >
         <action
             android:id="@+id/action_splashScreen_to_homeFragment"
-            app:destination="@id/homeFragment" />
+            app:destination="@id/homeFragment"/>
         <action
             android:id="@+id/action_splashScreen_to_changeNameFragment"
-            app:destination="@id/changeNameFragment" />
+            app:destination="@id/changeNameFragment"/>
+        <action
+            android:id="@+id/action_splashScreen_to_viewPager"
+            app:destination="@id/viewPager" />
     </fragment>
     <fragment
         android:id="@+id/changeNameFragment"
@@ -51,5 +54,14 @@
             android:id="@+id/action_changeNameFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
 
+    </fragment>
+    <fragment
+        android:id="@+id/viewPager"
+        android:name="com.example.bakkaldefteri.openingscreens.ViewPager"
+        android:label="fragment_view_pager"
+        tools:layout="@layout/fragment_view_pager" >
+        <action
+            android:id="@+id/action_viewPager_to_homeFragment"
+            app:destination="@id/homeFragment" />
     </fragment>
 </navigation>

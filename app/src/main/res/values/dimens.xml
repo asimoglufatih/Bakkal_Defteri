@@ -41,4 +41,6 @@
     <dimen name="changeNameFragmentAddButtonMarginTop">20dp</dimen>
     <dimen name="changeNameFragmentAddButtonMarginEnd">40dp</dimen>
     <dimen name="changeNameFragmentAddButtonRadius">30dp</dimen>
+    <dimen name="onboardingScreenTextViewMarginTop">10dp</dimen>
+    <dimen name="onboardingScreenTextViewTextSize">17sp</dimen>
 </resources>

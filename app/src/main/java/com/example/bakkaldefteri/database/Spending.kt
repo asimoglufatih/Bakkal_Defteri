@@ -12,7 +12,7 @@ data class Spending (
     @ColumnInfo(name = "description")
     val description: String,
     @ColumnInfo(name = "spendingValue")
-    val spendingValue: Int,
+    val spendingCost: Int,
     @ColumnInfo(name = "typeOfSpending")
     val typeOfSpending: Int,
     @ColumnInfo(name = "typeOfMoney")

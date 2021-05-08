@@ -29,4 +29,15 @@
     <string name="ChangeNameFragmentWomanRadioButtonText">Kadın</string>
     <string name="ChangeNameFragmentDoNotWantRadioButtonText">Belirtmek İstemiyorum</string>
     <string name="changeNameFragmentAddButtonText">Ekle</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="firstOnboardingScreenTextViewText">İşte Bakkal Defteri Uygulaması</string>
+    <string name="firstOnboardingScreenTextViewText2">Artık Karışıklığa son</string>
+    <string name="onBoardingScreenButtonText">Geç</string>
+    <string name="secondOnboardingScreenTextViewText">Kolayca Dönüştür</string>
+    <string name="secondOnboardingScreenTextViewText2">Harcamalarını gruplandırarak kolayca izle</string>
+    <string name="thirdOnboardingScreenTextViewText">Farklı para birimlerine dönüştür</string>
+    <string name="thirdOnboardingScreenTextViewText2">Harcamalarını farklı para birimleri ile güncel kur üzerinden takip et</string>
 </resources>

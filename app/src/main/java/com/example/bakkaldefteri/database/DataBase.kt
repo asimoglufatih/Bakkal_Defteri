@@ -9,7 +9,7 @@ import androidx.room.RoomDatabase
 @Database(entities= [Spending::class], version= 1, exportSchema = false)
 abstract class DataBase: RoomDatabase() {
 
-   abstract val dataBaseObject: DataBaseObject
+   abstract val dataBaseObject: SpendingDataBaseObject
 
    companion object {
 
