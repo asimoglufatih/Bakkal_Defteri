@@ -43,4 +43,5 @@
     <dimen name="changeNameFragmentAddButtonRadius">30dp</dimen>
     <dimen name="onboardingScreenTextViewMarginTop">10dp</dimen>
     <dimen name="onboardingScreenTextViewTextSize">17sp</dimen>
+    <dimen name="spashScreenTextViewTextSize">25sp</dimen>
 </resources>
