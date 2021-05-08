@@ -43,12 +43,10 @@ class ChangeNameFragment : Fragment() {
 
         })
 
-
         return binding.root
     }
 
     fun sendAction(){
-        var gender: String
         val userName = viewModel.userName.value.toString()
         val action = ChangeNameFragmentDirections.actionChangeNameFragmentToHomeFragment(
             userName

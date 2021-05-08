@@ -3,10 +3,12 @@ package com.example.bakkaldefteri.changename
 
 import android.text.Editable
 import android.util.Log
+import android.view.View
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.navigation.findNavController
 import com.example.bakkaldefteri.R
 import com.example.bakkaldefteri.database.User
 import com.example.bakkaldefteri.database.UserDataBaseObject
@@ -23,6 +25,10 @@ class ChangeNameViewModel(
     private val _userGender = MutableLiveData<Int>()
     val userGender: MutableLiveData<Int>
         get() = _userGender
+
+    private val _checkUserName = MutableLiveData<Boolean>()
+    val checkUserName: LiveData<Boolean>
+        get() = _checkUserName
 
     fun addUser(){
         viewModelScope.launch {
@@ -45,24 +51,16 @@ class ChangeNameViewModel(
             Log.i("userNameValue", userName.value.toString())
             Log.i("userGenderValue", userGender.value.toString())
             onSaved()
-
         }
-
     }
-
-    private val _checkUserName = MutableLiveData<Boolean>()
-    val checkUserName: LiveData<Boolean>
-        get() = _checkUserName
 
     init{
         _userGender.postValue(R.id.ChangeNameFragmentDoNotWantRadioButton)
     }
 
-
     fun setUsername(s: Editable){
         _userName.value = s.toString()
     }
-
 
     private fun onSaved(){
         if(userName.value != "" || userName.value != null){
@@ -73,7 +71,4 @@ class ChangeNameViewModel(
     fun onSavedComplete(){
         _checkUserName.value = false
     }
-
-
 }
-

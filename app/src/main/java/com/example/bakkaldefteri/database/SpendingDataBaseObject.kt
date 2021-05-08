@@ -12,8 +12,14 @@ interface SpendingDataBaseObject {
     @Query("SELECT * FROM spending_table ORDER BY description" )
     fun getAllSpending(): LiveData<List<Spending>>
 
+    @Query("SELECT * FROM spending_table WHERE spendingId= :idNo")
+    suspend fun read(idNo: Long): Spending?
+
+    @Query("SELECT * FROM spending_table ORDER BY spendingId DESC LIMIT 1")
+    suspend fun readLast(): Spending?
+
     @Delete
-    fun deleteSpending(spending: Spending)
+    suspend fun deleteSpending(spending: Spending)
 
 
 

@@ -1,44 +1,76 @@
 package com.example.bakkaldefteri.spendingadding
 
-import android.app.Application
-import android.util.Log
-import android.widget.Toast
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
+import com.example.bakkaldefteri.R
+import com.example.bakkaldefteri.database.Spending
 import com.example.bakkaldefteri.database.SpendingDataBaseObject
-import java.lang.Exception
-import java.util.*
+import kotlinx.coroutines.launch
 
 
 class SpendingAddingViewModel(
-    spendingDataBaseObject:SpendingDataBaseObject,
-    app:Application
+    private val spendingId: Long = 0L,
+    private val spendingDataBaseObject:SpendingDataBaseObject,
 ): ViewModel() {
 
-    //private val context = getApplication<Application>().applicationContext
-    private val spendingDataBase = spendingDataBaseObject
-    private val _navigateToHome = MutableLiveData<Boolean>()
-    val navigateToHome: LiveData<Boolean>
-        get() = _navigateToHome
+    var description: String? = null
+    var cost: String? = null
 
-    fun createSpending(description:String, txtCost:String, typeOfSpending: Int, currencyType: Int ){
+    private val _toHome = MutableLiveData<Boolean?>()
+    val toHome: LiveData<Boolean?>
+        get() = _toHome
 
-        try {
-            if(typeOfSpending != -1 && description != "" && txtCost != ""){
+    private val _selectExpenseType = MutableLiveData<Int>()
+    val selectExpenseType: MutableLiveData<Int>
+        get() = _selectExpenseType
 
+    private val _selectCurrency = MutableLiveData<Int>()
+    val selectCurrency: MutableLiveData<Int>
+        get() = _selectCurrency
 
-            }
-            else{
-                //Toast.makeText(ViewModel, "Tüm alanları doldurmalısınız", Toast. LENGTH_LONG);
-            }
-
-        }
-        catch (ex:Exception){
-            Log.e("ERROR", "SpendingAddingViewModel.createSpending() is don't work")
-        }
-
+    init {
+        _selectCurrency.postValue(R.id.spendingAddingScreenFragmentTLRadioButton)
+        _selectExpenseType.postValue(R.id.spendingAddingScreenFragmentOthersRadioButton)
     }
+
+    fun onAddButtonClick() {
+        viewModelScope.launch {
+            val newSpending = Spending()
+            newSpending.description = description.toString()
+            newSpending.spendingCost = cost?.toLong()!!
+
+            when (_selectExpenseType.value) {
+                R.id.spendingAddingScreenFragmentBillRadioButton -> {
+                    newSpending.typeOfSpending = "bill"
+                }
+                R.id.spendingAddingScreenFragmentRentRadioButton -> {
+                    newSpending.typeOfSpending = "rent"
+                }
+                else -> newSpending.typeOfSpending = "other"
+            }
+
+            when (_selectCurrency.value) {
+                R.id.spendingAddingScreenFragmentTLRadioButton -> {
+                    newSpending.typeOfMoney = "TL"
+                }
+                R.id.spendingAddingScreenFragmentSterlingRadioButton -> {
+                    newSpending.typeOfMoney = "STERLIN"
+                }
+                R.id.spendingAddingScreenFragmentEuroRadioButton -> {
+                    newSpending.typeOfMoney = "EURO"
+                }
+                else -> newSpending.typeOfMoney = "DOLAR"
+            }
+
+            spendingDataBaseObject.addSpending(newSpending)
+
+            _toHome.value = true
+        }
+    }
+
+    fun clickBack(){
+        _toHome.value=true
+    }
+
+
 
 }

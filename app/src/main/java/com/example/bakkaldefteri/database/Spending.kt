@@ -3,19 +3,23 @@ package com.example.bakkaldefteri.database
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import kotlinx.android.parcel.Parcelize
+
 
 @Entity(tableName = "spending_table")
 data class Spending (
 
     @PrimaryKey(autoGenerate = true)
-    val SpendingId: Int,
+    val spendingId: Long = 0L,
+    @ColumnInfo(name = "image_category")
+    var imageCategory: String = "",
     @ColumnInfo(name = "description")
-    val description: String,
+    var description: String = "",
     @ColumnInfo(name = "spendingValue")
-    val spendingCost: Int,
+    var spendingCost: Long = 0L,
     @ColumnInfo(name = "typeOfSpending")
-    val typeOfSpending: Int,
+    var typeOfSpending: String = "",
     @ColumnInfo(name = "typeOfMoney")
-    val typeOfMoney: Int
+    var typeOfMoney: String = ""
 
 )

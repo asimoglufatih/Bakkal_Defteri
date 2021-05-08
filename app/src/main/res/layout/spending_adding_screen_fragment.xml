@@ -4,6 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="spendingViewModel"
+            type="com.example.bakkaldefteri.spendingadding.SpendingAddingViewModel" />
 
     </data>
 
@@ -79,6 +82,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:checkedButton="@={spendingViewModel.selectExpenseType}"
             android:layout_marginStart="@dimen/spendingAddingScreenFragmentRadioGroupMarginStart">
 
             <RadioButton
@@ -154,6 +158,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="end"
+            android:onClick="@{() -> spendingViewModel.onAddButtonClick()}"
             android:layout_marginTop="@dimen/spendingAddingScreenFragmentAddButtonMarginTop"
             android:layout_marginEnd="@dimen/spendingAddingScreenFragmentAddButtonMarginEnd"
             android:text="@string/spendingAddingScreenFragmentAddButtonText"

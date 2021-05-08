@@ -85,66 +85,83 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/homeFragmentButtonConstraintLayoutHeight">
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnHomeFragmentTL"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:backgroundTint="@color/white"
-                app:strokeColor="@color/btnGray"
-                app:strokeWidth="@dimen/btnStrokeWidth"
-                app:cornerRadius="@dimen/btnCornerRadius"
-                android:textColor="@color/btnGray"
-                android:text="@string/homeFragmentTLButtonText"
-                app:layout_constraintHorizontal_chainStyle="spread"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/btnHomeFragmentSterling" />
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnHomeFragmentSterling"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:backgroundTint="@color/white"
-                app:strokeColor="@color/btnGray"
-                app:strokeWidth="@dimen/btnStrokeWidth"
-                app:cornerRadius="@dimen/btnCornerRadius"
-                android:textColor="@color/btnGray"
-                android:text="@string/homeFragmentSterlingButtonText"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/btnHomeFragmentTL"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/btnHomeFragmentEuro" />
+<!--            <com.google.android.material.chip.ChipGroup-->
+<!--                android:id="@+id/homeFragmentChipGroup"-->
+<!--                android:orientation="horizontal"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                app:singleLine="true">-->
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnHomeFragmentEuro"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:backgroundTint="@color/white"
-                app:strokeColor="@color/btnGray"
-                app:strokeWidth="@dimen/btnStrokeWidth"
-                app:cornerRadius="@dimen/btnCornerRadius"
-                android:textColor="@color/btnGray"
-                android:text="@string/homeFragmentEuroButtonText"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/btnHomeFragmentSterling"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/btnHomeFragmentDollar" />
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/btnHomeFragmentTL"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:backgroundTint="@color/btnSilver"
+                    app:strokeColor="@color/btnGray"
+                    app:strokeWidth="@dimen/btnStrokeWidth"
+                    app:cornerRadius="@dimen/btnCornerRadius"
+                    android:textColor="@color/btnGray"
+                    android:text="@string/homeFragmentTLButtonText"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/btnHomeFragmentSterling"/>
 
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnHomeFragmentDollar"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:backgroundTint="@color/white"
-                app:strokeColor="@color/btnGray"
-                app:strokeWidth="@dimen/btnStrokeWidth"
-                app:cornerRadius="@dimen/btnCornerRadius"
-                android:textColor="@color/btnGray"
-                android:text="@string/homeFragmentDollarButtonText"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/btnHomeFragmentEuro"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/btnHomeFragmentSterling"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:backgroundTint="@color/btnSilver"
+                    app:strokeColor="@color/btnGray"
+                    app:strokeWidth="@dimen/btnStrokeWidth"
+                    app:cornerRadius="@dimen/btnCornerRadius"
+                    android:textColor="@color/btnGray"
+                    android:text="@string/homeFragmentSterlingButtonText"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/btnHomeFragmentTL"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/btnHomeFragmentEuro" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/btnHomeFragmentEuro"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:backgroundTint="@color/btnSilver"
+                    app:strokeColor="@color/btnGray"
+                    app:strokeWidth="@dimen/btnStrokeWidth"
+                    app:cornerRadius="@dimen/btnCornerRadius"
+                    android:textColor="@color/btnGray"
+                    android:text="@string/homeFragmentEuroButtonText"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/btnHomeFragmentSterling"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/btnHomeFragmentDollar" />
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/btnHomeFragmentDollar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    style="@style/Widget.MaterialComponents.Chip.Choice"
+                    android:backgroundTint="@color/btnSilver"
+                    app:strokeColor="@color/btnGray"
+                    app:strokeWidth="@dimen/btnStrokeWidth"
+                    app:cornerRadius="@dimen/btnCornerRadius"
+                    android:textColor="@color/btnGray"
+                    android:text="@string/homeFragmentDollarButtonText"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/btnHomeFragmentEuro"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

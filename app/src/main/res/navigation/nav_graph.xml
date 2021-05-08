@@ -26,6 +26,10 @@
         android:name="com.example.bakkaldefteri.spendingadding.SpendingAddingScreenFragment"
         android:label="fragment_spending_adding_screen"
         tools:layout="@layout/spending_adding_screen_fragment" >
+        <argument
+            android:name="key"
+            app:argType="long"
+            android:defaultValue="0L"/>
         <action
             android:id="@+id/action_spendingAddingScreenFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
